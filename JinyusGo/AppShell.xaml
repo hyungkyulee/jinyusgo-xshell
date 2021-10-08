@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:JinyusGo.Views"
+       Title="JinyusGo"
+       x:Class="JinyusGo.AppShell">
+
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <Grid
+            HeightRequest="80"
+            BackgroundColor="Ivory">
+            <Label 
+                Text="Practice Menu"
+                FontSize="Header"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        </Grid>
+    </Shell.FlyoutHeader>
+    
+    <FlyoutItem
+        Title="Home"
+        FlyoutIcon="icon_about">
+        <Tab Title="About" Icon="icon_about">
+            <!-- <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" /> -->
+        </Tab>
+        <Tab Title="Dojos" Icon="icon_feed">
+            <!-- <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" /> -->
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem
+        Title="English"
+        FlyoutIcon="">
+        <Tab Title="English Practice" Icon="icon_about">
+            <ShellContent Title="Intro" ContentTemplate="{DataTemplate local:EnglishPage}" />
+            <ShellContent Title="Spelling" ContentTemplate="{DataTemplate local:EnglishSpellingPage}" />
+            <ShellContent Title="Punctuation" ContentTemplate="{DataTemplate local:EnglishPunctuationPage}" />
+            <ShellContent Title="Grammar" ContentTemplate="{DataTemplate local:EnglishGrammarPage}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem
+        Title="Vocabulary"
+        FlyoutIcon="">
+        <ShellContent ContentTemplate="{DataTemplate local:EnglishVocabularyPage}" />
+    </FlyoutItem>
+    <MenuItem Text="Rate this app" Icon="" Clicked="MenuItem_OnClicked"></MenuItem>
+    <!-- <TabBar> -->
+    <!--     <ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" /> -->
+    <!--     <ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" /> -->
+    <!-- </TabBar> -->
+
+    <!--
+        If you would like to navigate to this content you can do so by calling
+        await Shell.Current.GoToAsync("//LoginPage");
+    -->
+    <TabBar>
+        <!-- <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" /> -->
+    </TabBar>
+
+
+</Shell>

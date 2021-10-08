@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:JinyusGo.Helpers;assembly=JinyusGo"
+             x:Class="JinyusGo.Views.DojoDetailPage"
+             Title="{Binding Title, StringFormat='Dojo {0}'}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:ImageResourceConverter x:Key="ConverterImage" />
+            <Style x:Key="LabelDataStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="Margin" Value="0, 4, 0, 10" />
+            </Style>
+            <Style x:Key="LabelHeaderStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{Binding Dojo.LabelColor}" />
+                <Setter Property="FontSize" Value="Subtitle" />
+            </Style>
+            <Style x:Key="ViewMatchingColor" TargetType="{x:Type View}">
+                <Setter Property="BackgroundColor" Value="{Binding Dojo.BackgroundColor}"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource ViewMatchingColor}">
+            <Image HeightRequest="200" Aspect="AspectFill"
+                   Source="{Binding Dojo.ImageUrl, Converter={StaticResource ConverterImage}}" />
+            <Frame CornerRadius="50"
+                   Style="{StaticResource ViewMatchingColor}"
+                   Margin="0, -50, 0, -10"
+                   HasShadow="False">
+                <StackLayout Padding="10,0,0,0">
+                    <Label Text="Location: "
+                           Style="{StaticResource LabelHeaderStyle}" />
+                    <Label Text="{Binding Dojo.Location, Mode=TwoWay}"
+                           Style="{StaticResource LabelDataStyle}" />
+                    <Label Text="Contact: "
+                           Style="{StaticResource LabelHeaderStyle}" />
+                    <Label Text="{Binding Dojo.ContactName, Mode=TwoWay}"
+                           Style="{StaticResource LabelDataStyle}" />
+                    <Label Text="Email: "
+                           Style="{StaticResource LabelHeaderStyle}" />
+                    <Label Text="{Binding Dojo.EmailAddress, Mode=TwoWay}"
+                           Style="{StaticResource LabelDataStyle}" />
+                    <Label Text="Phone: "
+                           Style="{StaticResource LabelHeaderStyle}" />
+                    <Label Text="{Binding Dojo.PhoneNumber, Mode=TwoWay}"
+                           Style="{StaticResource LabelDataStyle}" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!-- <Button Grid.Column="0" -->
+                        <!--         Text="Email" -->
+                        <!--         Command="Binding SendEmailCommand" /> -->
+                        <!-- <Button Grid.Column="1" -->
+                        <!--         Text="Phone" -->
+                        <!--         Command="Binding PhoneCallCommand" /> -->
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

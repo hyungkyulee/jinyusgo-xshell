@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JinyusGo.Views.QuestDetailPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelDataStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="Margin" Value="0, -4, 0, 0" />
+            </Style>
+            <Style x:Key="LabelHeaderStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{Binding Quest.Dojo.LabelColor}" />
+                <Setter Property="FontSize" Value="Subtitle" />
+                <Setter Property="Margin" Value="0, 10, 0, 0" />
+            </Style>
+            <Style x:Key="ViewMatchingColor" TargetType="{x:Type View}">
+                <Setter Property="BackgroundColor" Value="{Binding Quest.Dojo.BackgroundColor}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
